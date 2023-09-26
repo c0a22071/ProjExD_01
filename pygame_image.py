@@ -15,8 +15,6 @@ def main():
     img_tr = pg.transform.rotozoom(img,10,1.0)
     image_list = [img,img_tr]
 
-
-
     tmr = 0
     while True:
         for event in pg.event.get():
@@ -25,14 +23,13 @@ def main():
 
         screen.blit(bg_img, [0, 0])
         screen.blit(img,[300,200])
-        pg.display.update()
         
     
         # 画像リストを横300、縦200の位置に交互に貼り付け
-        image_to_display = image_list[tmr % len(image_list)]
-        screen.blit(image_to_display, [300, 200])
+        screen.blit(image_list[tmr%2], [300, 200])
 
-        tmr += 1        
+        pg.display.update()
+        tmr += 1      
         clock.tick(10)
 
 
